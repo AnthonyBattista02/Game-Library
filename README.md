@@ -15,6 +15,7 @@ I am building a game library app. This wil be similar to other sites such as Ste
 
 # Getting Started:
 Include a link to the deployed app and your Trello board with the project's planning.
+https://drive.google.com/file/d/1WbMXoYv6P6VP8ti3DuVb67qkfns6iaD3/view?usp=sharing
 
 # Next Steps: 
 Planned future enhancements (icebox items).
