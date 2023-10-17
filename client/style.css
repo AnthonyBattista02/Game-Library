@@ -1,0 +1,143 @@
+*{
+    margin: auto;
+    color: rgb(207, 202, 202);
+}
+body{
+    background-color: rgb(196, 190, 190);
+}
+h1{
+    display: flex;
+    justify-content: center;
+    padding-top: .5em;
+    margin-bottom: .5em;
+    color: rgba(22, 31, 146, 0.804);
+    font-size: 1.75em;
+    text-align: center;
+    letter-spacing: 0.25em;
+}
+#logo{ 
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+input{
+    background-color: white;
+    border-color: white;
+    border-radius: 10px;
+    margin: .5em;
+    width: 20em;
+    height: 2em;
+    color: rgba(22, 31, 146, 0.804);
+}
+footer{
+    padding: 4em;
+    background-color: rgba(22, 31, 146, 0.804);
+    text-align: center;
+}
+
+#categories{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em; 
+    background-color: rgb(131, 131, 136);
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#navitms{
+    text-align: center;
+
+}
+#enter{
+    background-color: white;
+    border-color: white;
+    color: rgba(22, 31, 146, 0.804);
+    width: 60px;
+}
+#game-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: 1em; 
+    margin-bottom: 2em;
+}
+.cat{
+    height: 40px;
+    width: 120px;
+    margin: 10px;
+    color: rgba(22, 31, 146, 0.804);
+    border: none;
+    margin-block-start: auto;
+    background-color: whitesmoke;
+    border-radius: 18px;
+}
+@media (min-width: 2000px) {
+    #game-container{ 
+        grid-template-columns: auto auto auto auto auto auto auto;
+    }
+}
+@media (max-width: 1999px) {
+    #game-container{ 
+        grid-template-columns: auto auto auto auto auto;
+    }
+}
+@media (max-width: 1023px) {
+    h1{
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    #game-container{
+        margin-top: 0px;
+    }
+    }
+@media (max-width: 800px) {
+#game-container{ grid-template-columns: auto auto auto auto;}
+h1{
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+input{
+    width: 15em;
+}
+#categories{
+    flex-direction: column;
+    align-items: center;
+}
+.cat{
+    font-size: 13px;
+    height: fit-content;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 2px;
+}
+#game-container{
+   grid-template-columns: auto auto auto;
+   
+}
+}
+@media (max-width: 540px) {
+    #game-container{ grid-template-columns: auto auto auto auto;}
+    h1{
+        font-size: 45px;
+        margin-bottom: 20px;
+    }
+    }
+@media (max-width: 414px) {
+    #game-container{ grid-template-columns: auto;}
+    h1{
+        font-size: 30px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    input{
+        width: 120px;
+    }
+    #categories{
+        position: sticky;
+        top: 0px;
+    }
+    footer{
+    font-size: 16px;
+    }
+    }

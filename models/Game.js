@@ -1,5 +1,4 @@
 const { Schema } = require('mongoose')
-const { boolean } = require('webidl-conversions')
 
 const gameSchema = new Schema(
   {
