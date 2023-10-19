@@ -54,14 +54,49 @@ footer{
     color: rgba(22, 31, 146, 0.804);
     width: 60px;
 }
+#searchedGames{
+    background-color: rgb(131, 131, 136);
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+.gameS{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: relative;
+}
+#gameTitleS{ 
+    color: blue;
+    margin: 0;
+}
+#addGame{
+    color: blue;
+    width: auto;
+    position: absolute;
+    right: 0
+}
 #game-container{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
     margin-top: 1em; 
     margin-bottom: 2em;
 }
+.game{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    border: 4px solid white;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 80%;
+    margin-top: 1em;
+    box-shadow: 1px 1px 4px lightslategray;
+}
 #gameTitle{
-    color: blue
+    color: blue;
 }
 #gameDescription {
     color: blue
