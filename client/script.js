@@ -4,8 +4,7 @@ const category2 = document.querySelector('#cat2')
 const category3 = document.querySelector('#cat3')
 const category4 = document.querySelector('#cat4')
 const enter = document.querySelector(`#enter`)
-const addButton = document.querySelector(`#addGame`)
-let MyGameList = []
+let myGameList = []
 
 async function getGames() {
     const response = await axios.get(`http://localhost:3001/games`)
@@ -13,9 +12,9 @@ async function getGames() {
 }
 
 async function yes() {
-    allGames = await getGames()
-    console.log(allGames)
-    displayAll(allGames)
+    allGames = await getGames
+    console.log(myGameList)
+    displayAll(myGameList)
 }
 yes()
 
@@ -74,11 +73,34 @@ const displaySearched = (currentGames) => {
         game.id = `gameS${i+1}`
         game.innerHTML = 
             `<h3 id="gameTitleS">${currentGames[i].name}</h3>
-            <button id="addGame">add</button>`
+            <button class="addGame" id="addGame${i}">add</button>`
         container.appendChild(game)
     isDisplayedS = true
     lastLengthS = currentGames.length
+    
+
+        const addButton = document.querySelector(`#addGame${i}`)
+        addButton.onclick = async() => {
+            const parentGame = addButton.parentElement
+            console.log(parentGame)
+            const parentGameId = parentGame.id
+            const div = document.getElementById(`${parentGameId}`)
+            const header = div.querySelector("h3")
+            console.log(header.textContent)
+            allGames = await getGames();
+            const matchedGames = allGames.filter(game => game.name.includes(header.textContent));
+            if (matchedGames.length > 0) {
+                displayAll(matchedGames);
+                myGameList.push(matchedGames[0])
+                console.log(myGameList)
+            } else {
+                // Handle the case where no games match the search
+                console.log("This game cannot be added currently.");
+                console.log(matchedGames)
+            }
+        }
     }
+    
 }
 
 enter.onclick = async() => {
@@ -89,12 +111,9 @@ enter.onclick = async() => {
     if (matchedProducts.length > 0) {
         displaySearched(matchedProducts);
     } else {
-        // Handle the case where no products match the search
-        console.log("No products matched the search.");
+        // Handle the case where no games match the search
+        console.log("No games matched the search.");
     }
     
 }
 
-addButton.onclick = async() => {
-    MyGameList.push()
-}
