@@ -60,6 +60,26 @@ footer{
     margin-top: 1em; 
     margin-bottom: 2em;
 }
+#gameTitle{
+    color: blue
+}
+#gameDescription {
+    color: blue
+}
+#gameTags{
+    color: blue
+}
+#publisherDetails{
+    color: blue
+}
+#achievements{
+    color: blue
+}
+#gameImage{
+    border: none;
+    object-fit: cover;
+    object-position: 50% 40%;
+}
 .cat{
     height: 40px;
     width: 120px;

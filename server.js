@@ -14,8 +14,10 @@ app.use(bodyParser.json())
 app.use(logger('dev'))
 
 app.get('/', (req, res) => {
-  res.send('This is root!')
+  res.send('This is Groot!')
 })
+
+app.get('/games', gamesController.getAllGames)
 
 // app.get('/games', gamesController.getAllProducts)
 
