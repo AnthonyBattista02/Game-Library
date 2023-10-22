@@ -10,7 +10,22 @@ async function getGames() {
     const response = await axios.get(`http://localhost:3001/games`)
     return response.data
 }
-
+async function getCat1() {
+    const response = await axios.get(`http://localhost:3001/publishers/65348890299bed1e9f62a7f3`)
+    return response.data
+}
+async function getCat2() {
+    const response = await axios.get(`http://localhost:3001/publishers/65348890299bed1e9f62a7f2`)
+    return response.data
+}
+async function getCat3() {
+    const response = await axios.get(`http://localhost:3001/publishers/65348890299bed1e9f62a7f4`)
+    return response.data
+}
+async function getCat4() {
+    const response = await axios.get(`http://localhost:3001/publishers/65348890299bed1e9f62a7f5`)
+    return response.data
+}
 // async function yes() {
 //     allGames = await getGames()
 //     console.log(allGames)
@@ -35,6 +50,10 @@ const displayAll = (currentGames) => {
     for (let i = 0; i < currentGames.length; i++) {
         const container = document.getElementById('game-container')
         const game = document.createElement('div')
+        const xButton = document.createElement(`div`)
+        xButton.innerHTML = 'X'
+        xButton.className = `xButton`
+        xButton.id = `xButton${i+1}`
         console.log(`createelement`)
         game.className = 'game'
         game.id = `game${i+1}`
@@ -46,9 +65,11 @@ const displayAll = (currentGames) => {
             <h5 id="achievements">${currentGames[i].achievements}</h5>
             <img id="gameImage" src="${currentGames[i].image}">`
         container.appendChild(game)
+        game.appendChild(xButton)
     isDisplayed = true
     lastLength = currentGames.length
     }
+    removeGame()
 }
 
 let lastLengthS = 0
@@ -90,10 +111,11 @@ const displaySearched = (currentGames) => {
             allGames = await getGames();
             const matchedGames = allGames.filter(game => game.name.includes(header.textContent));
             if (matchedGames.length > 0) {
-                myGameList.push(matchedGames[0])
+                myGameList.unshift(matchedGames[0])
                 displayAll(myGameList)
                 console.log(myGameList)
                 //DELETE MATCHEDGAME FROM GAME LIBRARY
+                
             } else {
                 // Handle the case where no games match the search
                 console.log("This game cannot be added currently.");
@@ -118,3 +140,64 @@ enter.onclick = async() => {
     
 }
 
+function removeGame() {
+    const divIds = []
+    for (let i = 0; i < myGameList.length; i++) {
+        divIds.push(`xButton${i+1}`)
+    }
+    divIds.forEach(divId => {
+        const divElement = document.getElementById(divId)
+        if (divElement) {
+            divElement.onclick = async() => {
+                const h3Element = divElement.parentElement.querySelector("h3")
+                if (h3Element) {
+                    const h3text = h3Element.innerText
+                    const matchedGames = myGameList.filter(game => game.name.includes(h3text));
+                    if (matchedGames.length > 0) {
+                        indexToRemove = myGameList.indexOf(matchedGames[0])
+                        if (indexToRemove !== -1) {
+                            myGameList.splice(matchedGames[0], 1)
+                            displayAll(myGameList)
+                        }
+                    }
+                }
+            }
+        }
+    })
+}
+
+async function displayInfo(catData) {
+    const container = document.getElementById('info-container')
+    const info = document.createElement('div')
+    console.log(`createelement`)
+    info.className = 'catInfo'
+    info.innerHTML = `<h1>${catData[0].pubName}</h1>
+    <h3>This company was originally founded in ${catData[0].founded} and as of 2023 they have a company equity of $${catData[0].equity}</h3>
+    <img src="${catData[0].imageURL}">`
+    container.appendChild(info)
+    isDisplayedS = true
+}
+
+category1.onclick = async() => {
+    cat1Data = [await getCat1()]
+    console.log(cat1Data)
+    displayInfo(cat1Data)
+}
+category2.onclick = async() => {
+    cat2Data = [await getCat2()]
+    console.log(cat2Data)
+    displayInfo(cat2Data)
+}
+category3.onclick = async() => {
+    cat3Data = [await getCat3()]
+    console.log(cat3Data)
+    displayInfo(cat3Data)
+}
+category4.onclick = async() => {
+    cat4Data = [await getCat4()]
+    console.log(cat4Data)
+    displayInfo(cat4Data)
+}
+allCategories.onclick = async() => {
+    displayAll(myGameList)
+}
