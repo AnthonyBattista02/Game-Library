@@ -6,8 +6,8 @@ const gameSchema = new Schema(
     description: { type: String, required: true },
     achievements: { type: Number, required: true },
     imageURL:  { type: String, required: true },
-    publisher: [{ type: Schema.Types.ObjectId, ref: 'Publisher' }],
-    tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }]
+    publisher: [{ type: String, ref: 'Publisher', required: true }],
+    tags: [{ type: Array, ref: 'Tag', required: true }]
   },
   { timestamps: true }
 )

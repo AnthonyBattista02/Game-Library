@@ -56,14 +56,14 @@ footer{
 }
 #searchedGames{
     background-color: rgb(131, 131, 136);
-    width: 25%;
+    width: 25em;
     display: flex;
     flex-direction: column;
 }
 .gameS{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 90%;
     margin-top: 1em;
     margin-bottom: 1em;
     position: relative;

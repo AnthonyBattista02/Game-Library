@@ -11,12 +11,12 @@ async function getGames() {
     return response.data
 }
 
-async function yes() {
-    allGames = await getGames
-    console.log(myGameList)
-    displayAll(myGameList)
-}
-yes()
+// async function yes() {
+//     allGames = await getGames()
+//     console.log(allGames)
+//     displayAll(allGames)
+// }
+// yes()
 
 let lastLength = 0
 isDisplayed = false
@@ -90,9 +90,10 @@ const displaySearched = (currentGames) => {
             allGames = await getGames();
             const matchedGames = allGames.filter(game => game.name.includes(header.textContent));
             if (matchedGames.length > 0) {
-                displayAll(matchedGames);
                 myGameList.push(matchedGames[0])
+                displayAll(myGameList)
                 console.log(myGameList)
+                //DELETE MATCHEDGAME FROM GAME LIBRARY
             } else {
                 // Handle the case where no games match the search
                 console.log("This game cannot be added currently.");
