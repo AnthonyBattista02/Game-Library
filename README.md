@@ -18,4 +18,4 @@ Include a link to the deployed app and your Trello board with the project's plan
 https://drive.google.com/file/d/1WbMXoYv6P6VP8ti3DuVb67qkfns6iaD3/view?usp=sharing
 
 # Next Steps: 
-Planned future enhancements (icebox items).
+The next goal for this site is to make it look really nice. It is currently lacking in css for certain parts, but can be greatly improved with a bit of extra dedicated time. Past that the next goal would be to make the game library more extensive and even work with apis to greatly increase that amount of games that it holds. 
