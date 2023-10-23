@@ -169,7 +169,6 @@ isDisplayedI = false
 async function displayInfo(catData) {
     if (isDisplayedI == true) {
         const info1 = document.getElementById(`info-container`)
-        console.log(info1)
         info1.innerHTML = ''
     }
     const container = document.getElementById('info-container')
@@ -230,4 +229,7 @@ allCategories.onclick = async() => {
     elements.forEach(element => {
         element.style.visibility = 'visible'
     })
+
+    const info1 = document.getElementById(`info-container`)
+        info1.innerHTML = ''
 }
