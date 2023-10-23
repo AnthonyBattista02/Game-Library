@@ -165,8 +165,13 @@ function removeGame() {
         }
     })
 }
-
+isDisplayedI = false
 async function displayInfo(catData) {
+    if (isDisplayedI == true) {
+        const info1 = document.getElementById(`info-container`)
+        console.log(info1)
+        info1.innerHTML = ''
+    }
     const container = document.getElementById('info-container')
     const info = document.createElement('div')
     console.log(`createelement`)
@@ -175,29 +180,54 @@ async function displayInfo(catData) {
     <h3>This company was originally founded in ${catData[0].founded} and as of 2023 they have a company equity of $${catData[0].equity}</h3>
     <img src="${catData[0].imageURL}">`
     container.appendChild(info)
-    isDisplayedS = true
+    isDisplayedI = true
 }
 
 category1.onclick = async() => {
     cat1Data = [await getCat1()]
     console.log(cat1Data)
     displayInfo(cat1Data)
+
+    const elements = document.querySelectorAll('.game')
+    elements.forEach(element => {
+        element.style.visibility = 'hidden'
+    })
 }
 category2.onclick = async() => {
     cat2Data = [await getCat2()]
     console.log(cat2Data)
     displayInfo(cat2Data)
+
+    const elements = document.querySelectorAll('.game')
+    elements.forEach(element => {
+        element.style.visibility = 'hidden'
+    })
 }
 category3.onclick = async() => {
     cat3Data = [await getCat3()]
     console.log(cat3Data)
     displayInfo(cat3Data)
+
+    const elements = document.querySelectorAll('.game')
+    elements.forEach(element => {
+        element.style.visibility = 'hidden'
+    })
 }
 category4.onclick = async() => {
     cat4Data = [await getCat4()]
     console.log(cat4Data)
     displayInfo(cat4Data)
+
+    const elements = document.querySelectorAll('.game')
+    elements.forEach(element => {
+        element.style.visibility = 'hidden'
+    })
 }
 allCategories.onclick = async() => {
     displayAll(myGameList)
+
+    const elements = document.querySelectorAll('.game')
+    elements.forEach(element => {
+        element.style.visibility = 'visible'
+    })
 }
